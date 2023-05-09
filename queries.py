@@ -95,6 +95,41 @@ class Queries:
         print("White_Hisp_Age_Sex: ", self.white_hisp_age_sex)
         print("Race_Age_Sex: ", self.race_age_sex)
 
+def age_buckets(age):
+    """ Given an age returns the bucket it fall in.
+    """
+    buckets = [(0, 5),
+               (5, 10),
+               (10, 15),
+               (15, 18),
+               (18, 20),
+               (20, 21),
+               (21, 22),
+               (22, 25),
+               (25, 30),
+               (30, 35),
+               (35, 40),
+               (40, 45),
+               (45, 50),
+               (50, 55),
+               (55, 60),
+               (60, 62),
+               (62, 65),
+               (65, 67),
+               (67, 70),
+               (70, 75),
+               (75, 80),
+               (80, 85),
+               (85, 126)
+              ]
+
+    for (idx, bucket) in enumerate(buckets):
+        start, stop = bucket
+        if age in range(start, stop):
+            return idx
+
+    raise Exception("Age out of bounds: ", age)
+
 def query_manager(block):
     """
     """
